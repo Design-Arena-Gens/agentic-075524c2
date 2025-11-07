@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --page-width: 794px; /* A4 at 96 DPI */
+  --page-height: 1123px;
+}
+
+html, body {
+  height: 100%;
+}
+
+/* Printable A4 page */
+.page {
+  width: var(--page-width);
+  min-height: var(--page-height);
+  box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+  margin: 0 auto;
+  background: white;
+}
+
+@media print {
+  .no-print { display: none !important; }
+  .page {
+    box-shadow: none;
+    margin: 0;
+    break-after: page;
+    page-break-after: always;
+  }
+}
